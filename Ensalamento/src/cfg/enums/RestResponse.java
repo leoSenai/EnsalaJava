@@ -1,0 +1,5 @@
+package cfg.enums;
+
+public enum RestResponse {
+	INSERIR, REMOVER, ALTERAR, SELECIONAR_ERROR, INSERIR_ERROR, REMOVER_ERROR, ALTERAR_ERROR
+}

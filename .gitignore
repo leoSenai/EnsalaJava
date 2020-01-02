@@ -1,0 +1,8 @@
+# configuração do eclipse
+.metadata/
+.settings/
+# pasta do build
+build
+
+#arquivos class gerado pelo eclipse
+*.class
