@@ -1,17 +1,17 @@
 package utils;
 
+import java.util.HashSet;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import cfg.ConfigBanco;
 
-import java.util.HashSet;
-import java.util.List;
-
 public class Banco<T> {
 	public EntityManager em;
 	String table;
-	Query query;
+	public Query query;
 	String nomeThread;
 
 	public Banco() {

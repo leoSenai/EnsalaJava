@@ -1,7 +1,5 @@
 package utils;
 
-import java.util.Arrays;
-
 import cfg.enums.Permissao;
 import cfg.enums.StatusModelo;
 
@@ -10,7 +8,6 @@ public final class Utilidades {
 
 	public final static boolean StringVazio(final Class<?> clazz, final String nome, final Object o)
 			throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
-		System.out.println(clazz.getField(nome).get(o).toString());
 		return clazz.getField(nome).get(o).toString().isEmpty();
 	}
 

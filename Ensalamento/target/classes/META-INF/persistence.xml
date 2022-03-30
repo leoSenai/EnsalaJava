@@ -12,11 +12,12 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
        		<property name="hibernate.archive.autodetection" value="class" />
        		 
             <!-- Conexão com o banco de dados -->
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ensalamentodb" />
-			<property name="hibernate.connection.user" value="root" />
-			<property name="hibernate.connection.password" value="root" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:postgresql://ec2-35-169-37-64.compute-1.amazonaws.com:5432/ddp9c120gssbbv?charSet=UTF-8" />
+			
+			<property name="hibernate.connection.user" value="eaxthgzlyuxuwz" />
+			<property name="hibernate.connection.password" value="0475e8af413f4d667a5f4265ce95b4accd29c01ff6cb6888d58e0cd460dc0282" />
 <!--             <property name="hibernate.hbm2ddl.auto" value="create" /> -->
             <property name="hibernate.hbm2ddl.auto" value="update"/>
  
@@ -28,11 +29,11 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 			
            	<property name="connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider"/> 
             <property name="hibernate.c3p0.min_size" value="1" />
-            <property name="hibernate.c3p0.max_size" value="151" />
+            <property name="hibernate.c3p0.max_size" value="10" />
             <property name="hibernate.c3p0.acquire_increment" value="1" />
-            <property name="hibernate.c3p0.idle_test_period" value="20" />
-            <property name="hibernate.c3p0.max_statements" value="6" />
-            <property name="hibernate.c3p0.timeout" value="15" />
+            <property name="hibernate.c3p0.idle_test_period" value="900" />
+            <property name="hibernate.c3p0.max_statements" value="1" />
+            <property name="hibernate.c3p0.timeout" value="150000" />
 		</properties>
 	</persistence-unit>
 </persistence>

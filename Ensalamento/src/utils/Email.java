@@ -16,12 +16,13 @@ public final class Email {
 	public final static Email email = new Email();
 	private static Future<String> future;
 	private static Callable<String> callable;
-	private final static  ExecutorService pool = Executors.newFixedThreadPool(10);
+	private final static ExecutorService pool = Executors.newFixedThreadPool(50);
 
 	private Email() {
 	}
 
-	private final static Callable<String> dispararLista(final List<Professor> lista, final String Assunto, final String msg) {
+	private final static Callable<String> dispararLista(final List<Professor> lista, final String Assunto,
+			final String msg) {
 		return new Callable<String>() {
 			@Override
 			final public String call() throws Exception {
@@ -37,9 +38,27 @@ public final class Email {
 		};
 	}
 
+	private final static Callable<String> dispararEmail(final String email, final String Assunto, final String msg) {
+		return new Callable<String>() {
+			@Override
+			final public String call() throws Exception {
+				final SessionEmail sessao = SessionEmail.getInstance();
+				if (Utilidades.isEmail(email))
+					sessao.enviarEmail(Assunto, msg, email);
+				return null;
+			}
+		};
+	}
+
 	public final void enviar(List<Professor> lista, String Assunto, String msg)
 			throws InterruptedException, ExecutionException {
 		callable = dispararLista(lista, Assunto, msg);
+		future = pool.submit(callable);
+	}
+	
+	public final void enviar(String email, String Assunto, String msg)
+			throws InterruptedException, ExecutionException {
+		callable = dispararEmail(email, Assunto, msg);
 		future = pool.submit(callable);
 	}
 

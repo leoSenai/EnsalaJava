@@ -18,20 +18,26 @@ public final class SessionEmail {
 	private SessionEmail() {
 		final Properties props = new Properties();
  
-		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.socketFactory.port", 465);
-		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-		props.put("mail.smtp.auth", true);
-		props.put("mail.smtp.port", 465);
+		props.put("mail.smtp.host", Server.EMAIL_HOST);
+		props.put("mail.smtp.sendpartial", Server.EMAIL_SENDPARTIAL);
+		props.put("mail.smtp.auth", Server.EMAIL_AUTH);
+		props.put("mail.smtp.port", Server.EMAIL_PORT);
 
+		if(Server.EMAIL_CERTIFICADO.equals("SSL")) {			
+			props.put("mail.smtp.socketFactory.port", Server.EMAIL_SOCKETFACTORY_PORT);
+			props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+		}
+		if(Server.EMAIL_CERTIFICADO.equals("TLS")) {	
+			props.put("mail.smtp.starttls.enable", "true");
+		}
 		session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 
 			final protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("vinicios_a_oliveira@estudante.sc.senai.br", "FQDJ2156");
+				return new PasswordAuthentication(Server.EMAIL_USER, Server.EMAIL_PASS);
 			}
 		});
 
-		session.setDebug(true);
+		session.setDebug(Server.EMAIL_DEBUG);
 	}
 
 	public static SessionEmail getInstance() {
@@ -46,7 +52,7 @@ public final class SessionEmail {
 			throws AddressException, MessagingException {
 
 		final Message message = new MimeMessage(session);
-		final String remetente = "vinicios_a_oliveira@estudante.sc.senai.br";
+		final String remetente = Server.EMAIL_USER;
 		message.setFrom(new InternetAddress(remetente)); // Remetente
 		final Address[] toUser = InternetAddress // Destinat�rio(s)
 				.parse(email.trim().toLowerCase());
