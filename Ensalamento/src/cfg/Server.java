@@ -3,8 +3,8 @@ package cfg;
 public class Server {
 	
 	// URL + PORTA
-	public final static String URL_BACKEND_DEFAULT = "https://ensalaserver.herokuapp.com/";
-	public final static String URL_CLIENT_DEFAULT = "https://ensala.herokuapp.com/";
+	public final static String URL_BACKEND_DEFAULT = "https://ensalaserver2.herokuapp.com/";
+	public final static String URL_CLIENT_DEFAULT = "https://ensala2.herokuapp.com/";
 	public final static String URL_BACKEND_CONTEXT = "/rest/";
 	
 	// nome da referencia do banco para o hibernate

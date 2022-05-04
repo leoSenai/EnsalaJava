@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>EnsalamentoMaven</groupId>
 	<artifactId>EnsalamentoMaven</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -32,6 +32,7 @@
 				  <processTypes>
 				     <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
 				  </processTypes>
+        			<appName>ensalaserver2</appName>
 				</configuration>
 		      </plugin>
 		</plugins>

@@ -14,10 +14,10 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
             <!-- Conexão com o banco de dados -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:postgresql://ec2-35-169-37-64.compute-1.amazonaws.com:5432/ddp9c120gssbbv?charSet=UTF-8" />
+			<property name="hibernate.connection.url" value="jdbc:postgres://fvrxistkpcldai:741c8505fab2556ed0a0a9e4d56150fb9092e90261ecc61355bc62b82e27cddf@ec2-34-194-73-236.compute-1.amazonaws.com:5432/dekit4121acdtv?charSet=UTF-8" />
 			
-			<property name="hibernate.connection.user" value="eaxthgzlyuxuwz" />
-			<property name="hibernate.connection.password" value="0475e8af413f4d667a5f4265ce95b4accd29c01ff6cb6888d58e0cd460dc0282" />
+			<property name="hibernate.connection.user" value="fvrxistkpcldai" />
+			<property name="hibernate.connection.password" value="741c8505fab2556ed0a0a9e4d56150fb9092e90261ecc61355bc62b82e27cddf" />
 <!--             <property name="hibernate.hbm2ddl.auto" value="create" /> -->
             <property name="hibernate.hbm2ddl.auto" value="update"/>
  
