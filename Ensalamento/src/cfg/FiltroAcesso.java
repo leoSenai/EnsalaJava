@@ -23,10 +23,10 @@ public class FiltroAcesso implements Filter {
 
 		try {
 			/*
-			 * O método getSession é responsavel por pegar a sessão ativa. Aqui
-			 * foi necessario fazer um casting pois o objeto request é do tipo
-			 * ServletRequest e não HttpServletRequest como no servlet onde você
-			 * utiliza o método sem o uso do casting.
+			 * O mï¿½todo getSession ï¿½ responsavel por pegar a sessï¿½o ativa. Aqui
+			 * foi necessario fazer um casting pois o objeto request ï¿½ do tipo
+			 * ServletRequest e nï¿½o HttpServletRequest como no servlet onde vocï¿½
+			 * utiliza o mï¿½todo sem o uso do casting.
 			 */
 			HttpSession session = ((HttpServletRequest) request).getSession();
 			String usuario = null;
@@ -41,17 +41,17 @@ public class FiltroAcesso implements Filter {
 				System.out.println("filtrado");
 
 					/*
-					 * Aqui esta sendo setado um atributo na sessão para que
-					 * depois possamos exibir uma mensagem ao usuário.
+					 * Aqui esta sendo setado um atributo na sessï¿½o para que
+					 * depois possamos exibir uma mensagem ao usuï¿½rio.
 					 */
 					session.setAttribute("msg",
-							"Você não está logado no sistema!");
+							"VocÃª nÃ£o estÃ¡ logado no sistema!");
 					/*
-					 * Utilizamos o método sendRedirect que altera a URL do
-					 * navegador para posicionar o usuário na tela do login, que
-					 * neste caso é a página index.html Note que não precisamos
+					 * Utilizamos o mï¿½todo sendRedirect que altera a URL do
+					 * navegador para posicionar o usuï¿½rio na tela do login, que
+					 * neste caso ï¿½ a pï¿½gina index.html Note que nï¿½o precisamos
 					 * utilizar o recurso "../../" para informar o caminho da
-					 * página index.html, a variável do contexto já posiciona no
+					 * pï¿½gina index.html, a variï¿½vel do contexto jï¿½ posiciona no
 					 * inicio da URL.
 					 */
 //					((HttpServletResponse) response).sendRedirect(context
@@ -60,8 +60,8 @@ public class FiltroAcesso implements Filter {
 				
 			} else {
 				/*
-				 * Caso exista um usuário valido (diferente de nulo) envia a
-				 * requisição para a pagina que se deseja acessar, ou seja,
+				 * Caso exista um usuï¿½rio valido (diferente de nulo) envia a
+				 * requisiï¿½ï¿½o para a pagina que se deseja acessar, ou seja,
 				 * permite o acesso, deixa passa.
 				 */
 				chain.doFilter(request, response);
