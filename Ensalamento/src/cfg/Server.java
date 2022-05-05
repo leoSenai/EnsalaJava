@@ -8,7 +8,7 @@ public class Server {
 	public final static String URL_BACKEND_CONTEXT = "/rest/";
 	
 	// nome da referencia do banco para o hibernate
-	public final static String DB_NAME = "ensalamento"; // padrão "ensalamento"
+	public final static String DB_NAME = "dekit4121acdtv"; // padrão "ensalamento"
 
 	// hash estático para geração de criptografia
 	public final static String CRIP_HASH = "79C9B6F8E0B2417A84A9";
