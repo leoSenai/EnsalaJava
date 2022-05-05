@@ -7,7 +7,7 @@ import cfg.Server;
 
 public final class ConfigBanco {
 
-	private final static EntityManagerFactory emf = Persistence.createEntityManagerFactory(Server.DB_NAME);
+	private final static EntityManagerFactory emf = Persistence.createEntityManagerFactory(cfg.Server.DB_NAME);
 		
 	public final static EntityManager getEntityManager() {
 		return emf.createEntityManager();
