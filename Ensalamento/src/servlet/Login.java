@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 
 import java.sql.Connection;
-// conex„o com o banco
+// conex√£o com o banco
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;

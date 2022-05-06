@@ -8,6 +8,14 @@
 	<packaging>war</packaging>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
+		<resources>
+		<resource>
+			<directory>src</directory>
+			<includes>
+				<include>META-INF/persistence.xml</include>
+			</includes>
+			</resource>
+		</resources>
 		<plugins> 
 			<plugin>  
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -37,6 +45,9 @@
 		      </plugin>
 		</plugins>
 	</build>
+	<properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	</properties>
 	<dependencies>
 		<dependency>
 		    <groupId>io.jsonwebtoken</groupId>
@@ -110,17 +121,17 @@
 			<version>2.3.1</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>4.0.0.Final</version>
-		</dependency>
+		</dependency> -->
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.1.0.Final</version>
-		</dependency>
+		</dependency> -->
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
