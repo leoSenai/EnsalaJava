@@ -33,7 +33,7 @@ public final class UtilRest {
 			 * Monta o objeto de resposta com status 200(ok), junto com o objeto result
 			 * convertido para JSON pelo objeto fw para o cliente no format String.
 			 */
-			return Response.ok(fw.toString());
+			return Response.ok(fw.toString()).header("Access-Control-Allow-Origin", "*");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return null;
