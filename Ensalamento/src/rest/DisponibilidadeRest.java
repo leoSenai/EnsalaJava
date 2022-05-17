@@ -151,26 +151,91 @@ public class DisponibilidadeRest extends Rest {
 
 	public final String getFiltroDisponibilidade(PesquisaDisponibilidade pesquisa) {
 		String where = "";
+		if (pesquisa.manha){
+			where += " and (p.disponibilidade.segM = true or p.disponibilidade.terM = true or p.disponibilidade.quaM = true or p.disponibilidade.quiM = true or p.disponibilidade.sexM = true or p.disponibilidade.sabM = true or p.disponibilidade.domM = true)";
+		}
+		if (pesquisa.tarde){
+			where += " and (p.disponibilidade.segT = true or p.disponibilidade.terT = true or p.disponibilidade.quaT = true or p.disponibilidade.quiT = true or p.disponibilidade.sexT = true or p.disponibilidade.sabT = true or p.disponibilidade.domT = true)";
+		}
+		if (pesquisa.noite){
+			where += " and (p.disponibilidade.segN = true or p.disponibilidade.terN = true or p.disponibilidade.quaN = true or p.disponibilidade.quiN = true or p.disponibilidade.sexN = true or p.disponibilidade.sabN = true or p.disponibilidade.domN = true)";
+		}
 		if (pesquisa.segunda) {
-			where += " and (p.disponibilidade.segM = true or p.disponibilidade.segT = true or p.disponibilidade.segN = true)";
+			if(pesquisa.manha){
+				where += " and (p.disponibilidade.segM = true)";
+			}else if(pesquisa.tarde){
+				where += " and (p.disponibilidade.segT = true)";
+			}else if(pesquisa.noite){
+				where += " and (p.disponibilidade.segN = true)";
+			}else{
+				where += " and (p.disponibilidade.segM = true or p.disponibilidade.segT = true or p.disponibilidade.segN = true)";
+			}
 		}
 		if (pesquisa.terca) {
-			where += " and (p.disponibilidade.terM = true or p.disponibilidade.terT = true or p.disponibilidade.terN = true)";
+			if(pesquisa.manha){
+				where += " and (p.disponibilidade.terM = true)";
+			}else if(pesquisa.tarde){
+				where += " and (p.disponibilidade.terT = true)";
+			}else if(pesquisa.noite){
+				where += " and (p.disponibilidade.terN = true)";
+			}else{
+				where += " and (p.disponibilidade.terM = true or p.disponibilidade.terT = true or p.disponibilidade.terN = true)";
+			}
 		}
 		if (pesquisa.quarta) {
-			where += " and (p.disponibilidade.quaM = true or p.disponibilidade.quaT = true or p.disponibilidade.quaN = true)";
+			if(pesquisa.manha){
+				where += " and (p.disponibilidade.quaM = true)";
+			}else if(pesquisa.tarde){
+				where += " and (p.disponibilidade.quaT = true)";
+			}else if(pesquisa.noite){
+				where += " and (p.disponibilidade.quaN = true)";
+			}else{
+				where += " and (p.disponibilidade.quaM = true or p.disponibilidade.quaT = true or p.disponibilidade.quaN = true)";
+			}
 		}
 		if (pesquisa.quinta) {
-			where += " and (p.disponibilidade.quiM = true or p.disponibilidade.quiT = true or p.disponibilidade.quiN = true)";
+			if(pesquisa.manha){
+				where += " and (p.disponibilidade.quiM = true)";
+			}else if(pesquisa.tarde){
+				where += " and (p.disponibilidade.quiT = true)";
+			}else if(pesquisa.noite){
+				where += " and (p.disponibilidade.quiN = true)";
+			}else{
+				where += " and (p.disponibilidade.quiM = true or p.disponibilidade.quiT = true or p.disponibilidade.quiN = true)";
+			}
 		}
 		if (pesquisa.sexta) {
-			where += " and (p.disponibilidade.sexM = true or p.disponibilidade.sexT = true or p.disponibilidade.sexN = true)";
+			if(pesquisa.manha){
+				where += " and (p.disponibilidade.sexM = true)";
+			}else if(pesquisa.tarde){
+				where += " and (p.disponibilidade.sexT = true)";
+			}else if(pesquisa.noite){
+				where += " and (p.disponibilidade.sexN = true)";
+			}else{
+				where += " and (p.disponibilidade.sexM = true or p.disponibilidade.sexT = true or p.disponibilidade.sexN = true)";
+			}
 		}
 		if (pesquisa.sabado) {
-			where += " and (p.disponibilidade.sabM = true or p.disponibilidade.sabT = true or p.disponibilidade.sabN = true)";
+			if(pesquisa.manha){
+				where += " and (p.disponibilidade.sabM = true)";
+			}else if(pesquisa.tarde){
+				where += " and (p.disponibilidade.sabT = true)";
+			}else if(pesquisa.noite){
+				where += " and (p.disponibilidade.sabN = true)";
+			}else{
+				where += " and (p.disponibilidade.sabM = true or p.disponibilidade.sabT = true or p.disponibilidade.sabN = true)";
+			}
 		}
 		if (pesquisa.domingo) {
-			where += " and (p.disponibilidade.domM = true or p.disponibilidade.domT = true or p.disponibilidade.domN = true)";
+			if(pesquisa.manha){
+				where += " and (p.disponibilidade.domM = true)";
+			}else if(pesquisa.tarde){
+				where += " and (p.disponibilidade.domT = true)";
+			}else if(pesquisa.noite){
+				where += " and (p.disponibilidade.domN = true)";
+			}else{
+				where += " and (p.disponibilidade.domM = true or p.disponibilidade.domT = true or p.disponibilidade.domN = true)";
+			}
 		}
 		if(!pesquisa.pesquisa.isEmpty()) {
 			where += " and p.nome like \'"+pesquisa.pesquisa+"%\'";
@@ -189,11 +254,14 @@ class PesquisaDisponibilidade implements Serializable {
 	public boolean sexta = false;
 	public boolean sabado = false;
 	public boolean domingo = false;
+	public boolean manha = false;
+	public boolean tarde = false;
+	public boolean noite = false;
 
 	@Override
 	public String toString() {
 		return "pesquisa [pesquisa=" + pesquisa + ", segunda=" + segunda + ", terca=" + terca + ", quarta=" + quarta
-				+ ", quinta=" + quinta + ", sexta=" + sexta + ", sabado=" + sabado + ", domingo=" + domingo + "]";
+				+ ", quinta=" + quinta + ", sexta=" + sexta + ", sabado=" + sabado + ", domingo=" + domingo + ", manha="+ manha +", tarde="+ tarde +", noite="+noite+"]";
 	}
 
 }
