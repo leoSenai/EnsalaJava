@@ -36,7 +36,6 @@ public final class UnidadeCurricular implements Serializable {
 	@JsonIgnore
 	@ManyToMany(mappedBy = "unidadecurricular")
 	public List<Professor> professor;
-
 	/*
 	 * Sincero amor a todos os níveis de gambiarra!
 	 */

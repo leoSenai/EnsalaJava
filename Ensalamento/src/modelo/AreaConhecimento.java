@@ -35,7 +35,9 @@ public final class AreaConhecimento implements Serializable {
 	@JsonIgnore
 	@ManyToMany(mappedBy = "areaconhecimento")
 	public List<Professor> professor;
-
+	@JsonIgnore
+	@ManyToMany(mappedBy = "areaconhecimento")	
+	public List<Modalidade> modalidade;
 	@PostUpdate
 	public void corrigeProfessor() {
 		if (this.status.equals(StatusModelo.INATIVO)) {
