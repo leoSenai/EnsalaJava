@@ -11,8 +11,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.ManyToMany;
 import javax.persistence.PostUpdate;
+import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
@@ -21,6 +23,7 @@ import cfg.enums.StatusModelo;
 import utils.Banco;
 
 @Entity
+@Table(name = "AreaConhecimento", indexes = { @Index(columnList = "id", name = "areaconhecimento_id") })
 public final class AreaConhecimento implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -36,7 +39,7 @@ public final class AreaConhecimento implements Serializable {
 	@ManyToMany(mappedBy = "areaconhecimento")
 	public List<Professor> professor;
 	@JsonIgnore
-	@ManyToMany(mappedBy = "areaconhecimento")	
+	@ManyToMany(mappedBy = "areaConhecimento")	
 	public List<Modalidade> modalidade;
 	@PostUpdate
 	public void corrigeProfessor() {

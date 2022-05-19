@@ -31,7 +31,7 @@ public final class Modalidade implements Serializable {
 	@Enumerated(EnumType.ORDINAL)
 	public StatusModelo status;
 	@ManyToMany
-	public List<AreaConhecimento> areaconhecimento;
+	public List<AreaConhecimento> areaConhecimento;
 	@JsonIgnore
 	@ManyToMany(mappedBy = "modalidade")
 	public List<Professor> professor;
@@ -75,7 +75,7 @@ public final class Modalidade implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Modalidade [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", status=" + status + ", areaconhecimento=" + areaconhecimento + "]";
+		return "Modalidade [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", status=" + status + ", areaConhecimento=" + areaConhecimento + "]";
 	}
 
 }
