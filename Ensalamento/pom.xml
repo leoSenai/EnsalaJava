@@ -38,15 +38,17 @@
 		        <version>3.0.3</version>
 		        <configuration>
 				  <processTypes>
-				     <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+				     <web>java $JAVA_OPTS -Dfile.encoding=UTF-8 -cp target/classes:target/dependency/* Main</web>
 				  </processTypes>
         			<appName>ensalaserver2</appName>
+					<encoding>UTF-8</encoding>
 				</configuration>
 		      </plugin>
 		</plugins>
 	</build>
 	<properties>
-    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   	</properties>
 	<dependencies>
 		<dependency>

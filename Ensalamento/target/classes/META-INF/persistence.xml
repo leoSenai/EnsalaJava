@@ -14,12 +14,16 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
             <!-- Conexão com o banco de dados -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
+			<!-- <property name="hibernate.connection.url" value="jdbc:postgresql://ec2-44-194-117-205.compute-1.amazonaws.com:5432/d1qlhta3s8gl7k?charSet=UTF-8" /> -->
 			<property name="hibernate.connection.url" value="jdbc:postgresql://ec2-44-194-117-205.compute-1.amazonaws.com:5432/d1qlhta3s8gl7k?charSet=UTF-8" />
-			
 			<property name="hibernate.connection.user" value="zejdxmnqnwahcu" />
 			<property name="hibernate.connection.password" value="c4db9ca3f3f95c8652552e0f034987999c71505701aa9af21e23090db3fd5e29" />
 <!--             <property name="hibernate.hbm2ddl.auto" value="create" /> -->
             <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+			<property name="hibernate.connection.characterEncoding" value="utf8"/>
+        	<property name="hibernate.connection.useUnicode" value="true"/>
+        	<property name="hibernate.connection.charSet" value="UTF-8"/>
 
             <!--Configuracoes de Debug-->
 			<property name="hibernate.show_sql" value="false" />
